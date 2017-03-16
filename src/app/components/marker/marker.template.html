@@ -1,0 +1,41 @@
+<div>
+	<sebm-google-map [latitude]="-20.540101" [longitude]="-47.4073232" [zoom]="6">
+		<sebm-google-map-marker 
+		      *ngFor="let m of itens let i = index"
+		      (markerClick)="clickedMarker(m.label, i)"
+		      [latitude]="m.lat"
+		      [longitude]="m.lng"
+		      [label]="m.label"
+		      [markerDraggable]="m.draggable"
+		      [iconUrl]="m.icon" >
+		</sebm-google-map-marker>
+	</sebm-google-map>
+</div>
+<br />
+<div class="card card-block">
+	<app-marker-form></app-marker-form>
+</div>
+<br />
+<h4>Luizalabs Offices</h4>
+<div class="card card-block">
+	<div class="table-responsive">
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Lat</th>
+					<th>Long</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let marker of itens let i=index">
+					<td>{{marker.label}}</td>
+					<td>{{marker.lat}}</td>
+					<td>{{marker.lng}}</td>
+					<td><span (click)="deleteMarker(i)" class="delete-icon">[X]</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
