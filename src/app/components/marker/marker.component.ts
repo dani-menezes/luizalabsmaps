@@ -1,70 +1,65 @@
-  //the Marker component
+// The Marker component
 
-  import { Component } from '@angular/core';
-  import { Marker } from './marker';
+import { Component } from '@angular/core';
+import { Marker } from './marker';
+import { MarkerService } from './marker.service';
+import { Http, Response, RequestOptions, Headers, Request, RequestMethod } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
-  @Component({
-    selector: 'marker',
-    templateUrl: 'marker.template.html',
-    styleUrls: ['marker.css']
-  })
-  export class MarkerComponent {
+@Component({
+  selector: 'app-marker',
+  templateUrl: 'marker.template.html',
+  styleUrls: ['marker.css'],
+  providers: [MarkerService]
+})
+export class MarkerComponent {
 
-    marker: Marker;
-    description: string;
-    markerObj: Marker;
-    itens: Marker[];
+  // Presentation
+  marker: Marker;
+  itens: Marker[];
+  // Form
+  label: string;
+  latitude: number;
+  longitude: number;
 
-    constructor() {
-      this.marker = null;
-      this.description = '';
-      this.itens = [
-        {
-          id: 0,
-          label: 'Luizalabs Franca',
-          lat: -20.5401013,
-          lng: -47.4073232,
-          draggable: false
-        },
-        {
-          id: 0,
-          label: 'Luizalabs SP',
-          lat: -20.5201013,
-          lng: -47.4873232,
-          draggable: false
-        }
-    ];
-    }
+  constructor(private markerService: MarkerService) {
+    this.refreshItensList();
+  }
 
-    addMarker(event) {
-      this.markerObj = {
-        id: 0,
-        lat: -20.5501013,
-        lng: -47.4173232,
-        draggable: false,
-        completed: false
-      }
-      this.itens.push(this.markerObj);
-      this.markerObj = this.getNewMarker();
-      event.preventDefault();
-    }
+  addMarker(event) {
+    const markerDTO = {
+      id: null,
+      label: this.label,
+      lat: this.latitude,
+      lng: this.longitude,
+    };
+    console.log('addMarker', markerDTO);
+    this.markerService.save(markerDTO).subscribe (
+      data => console.log('save', data),
+      err => console.log('error', err),
+      () => this.refreshItensList()
+    );
+    this.refreshItensList();
+  }
 
-    deleteMarker(index) {
-      this.itens.splice(index, 1);
-    }
+  deleteMarker(id) {
+    this.markerService.delete(id).subscribe (
+      data => console.log('delete', data),
+      err => console.log('error', err),
+      () => this.refreshItensList()
+    );
+  }
 
-    clickedMarker(label: string, index: number) {
-        console.log(`clicked the marker: ${label || index}`)
-    }
-    
-    getNewMarker() {
-      return {
-          id: 0,
-          label: null,
-          lat: null,
-          lng: null,
-          draggable: false
-        }
-    }
+  refreshItensList() {
+    this.markerService.getAll().subscribe(
+      data => this.itens = data,
+      err => console.log('error', err)
+    );
+  }
+
+  clickedMarker(label: string, index: number) {
+    console.log(`clicked the marker: ${label || index}`);
+  }
 
 }

@@ -196,4 +196,28 @@
     }
   }
 }
+
+.jambo_table {
+	background: rgba(52, 73, 94, 0.94);
+	color: #ECF0F1
+}
+
+.body_table {
+	background-color: #EEE !important;
+	color: #000;
+}
+
+.centralize {
+	text-align: center;
+}
+
+.inputSimple {
+	border:solid;
+	border-color: #FFF;
+	margin-bottom: 3px;
+}
+
+.markeradd {
+	margin-top: 5px;
+}
   
