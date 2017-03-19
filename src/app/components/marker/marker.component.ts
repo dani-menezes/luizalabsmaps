@@ -23,10 +23,16 @@ export class MarkerComponent {
   latitude: number;
   longitude: number;
 
+  /**
+   * Default constructor
+   */
   constructor(private markerService: MarkerService) {
     this.refreshItensList();
   }
 
+  /**
+   * Adiciona um marker
+   */
   addMarker(event) {
     const markerDTO = {
       id: null,
@@ -43,6 +49,9 @@ export class MarkerComponent {
     this.refreshItensList();
   }
 
+  /**
+   * Delete the marker
+   */
   deleteMarker(id) {
     this.markerService.delete(id).subscribe (
       data => console.log('delete', data),
@@ -51,6 +60,9 @@ export class MarkerComponent {
     );
   }
 
+  /**
+   * Refresh the list of Markers
+   */
   refreshItensList() {
     this.markerService.getAll().subscribe(
       data => this.itens = data,
@@ -58,8 +70,11 @@ export class MarkerComponent {
     );
   }
 
-  clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`);
+  /**
+   * Show the marker information
+   */
+  clickedMarker(marker: Marker) {
+    console.log(`clicked the marker: `, marker);
   }
 
 }

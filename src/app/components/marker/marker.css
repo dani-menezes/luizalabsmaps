@@ -197,13 +197,18 @@
   }
 }
 
+
+.tableX {
+	margin-right: 5px;
+}
+
 .jambo_table {
 	background: rgba(52, 73, 94, 0.94);
 	color: #ECF0F1
 }
 
 .body_table {
-	background-color: #EEE !important;
+	background-color: #FFF !important;
 	color: #000;
 }
 
