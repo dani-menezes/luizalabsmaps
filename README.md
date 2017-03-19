@@ -1,31 +1,50 @@
-# Luizalabsmaps
+# README #
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+Luiza Labs Offices Map
 
-## Development server
+author: Daniel Assunção Faria de Menezes
+
+email: daniel.afmenezes@gmail.com
+
+# How to #
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-## Build
+# Build #
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+# Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+-- @TODO No test was implemented.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+# Execution LOG #
 
-## Deploying to GitHub Pages
+MacBook-Pro-de-Daniel:luizalabsmaps danielmenezes$ ng serve
+As a forewarning, we are moving the CLI npm package to "@angular/cli" with the next release,
+which will only support Node 6.9 and greater. This package will be officially deprecated
+shortly after.
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+To disable this warning use "ng set --global warnings.packageDeprecation=false".
 
-## Further help
+fallbackLoader option has been deprecated - replace with "fallback"
+loader option has been deprecated - replace with "use"
+fallbackLoader option has been deprecated - replace with "fallback"
+loader option has been deprecated - replace with "use"
+fallbackLoader option has been deprecated - replace with "fallback"
+loader option has been deprecated - replace with "use"
+fallbackLoader option has been deprecated - replace with "fallback"
+loader option has been deprecated - replace with "use"
+** NG Live Development Server is running on http://localhost:4200. **
+Hash: afbb4a46ed182ce96743                                                               
+Time: 8367ms
+chunk    {0} polyfills.bundle.js, polyfills.bundle.map (polyfills) 232 kB {4} [initial] [rendered]
+chunk    {1} main.bundle.js, main.bundle.map (main) 17.2 kB {3} [initial] [rendered]
+chunk    {2} styles.bundle.js, styles.bundle.map (styles) 148 kB {4} [initial] [rendered]
+chunk    {3} vendor.bundle.js, vendor.bundle.map (vendor) 2.72 MB [initial] [rendered]
+chunk    {4} inline.bundle.js, inline.bundle.map (inline) 0 bytes [entry] [rendered]
+webpack: Compiled successfully.
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+

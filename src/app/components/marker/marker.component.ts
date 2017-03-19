@@ -76,7 +76,7 @@ export class MarkerComponent {
    * Show the marker information
    */
   clickedMarker(marker: Marker) {
-    console.log(`clicked the marker: `, marker);
+    alert('Marker: [ ' + marker.id + ', ' + marker.label + ', ' + marker.lat + ', ' + marker.lng + ']');
   }
 
 }
