@@ -46,7 +46,9 @@ export class MarkerComponent {
       err => console.log('error', err),
       () => this.refreshItensList()
     );
-    this.refreshItensList();
+    this.label = null;
+    this.latitude = null;
+    this.longitude = null;
   }
 
   /**
